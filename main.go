@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"os"
 )
 
 
@@ -13,5 +14,7 @@ func check(e error) {
 
 
 func main() {
-	fmt.Println("Hello world!")
+	dat, err := os.ReadFile("./contacts.vcf")
+	check(err)
+	fmt.Print(string(dat))
 }
