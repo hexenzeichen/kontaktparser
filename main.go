@@ -30,4 +30,12 @@ func main() {
 		fmt.Printf("-%q\n", line)
 	}
 
+	file, err := os.Create("./newcontacts.vcf")
+	check(err)
+
+	defer file.Close()
+
+	
+
+
 }
