@@ -19,9 +19,15 @@ func main() {
 	check(err)
 
 
-	lines := strings.Split(string(data), "\n")
+	splitted := strings.Split(string(data), "\n")
 
-	for _, line := range lines {
+	for i := 0; i < len(splitted); i++ {
+		splitted[i] = "subs"
+	}
+
+	
+	for _, line := range splitted {
 		fmt.Printf("-%q\n", line)
 	}
+
 }
