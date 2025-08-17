@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"bufio"
 	"strings"
 )
 
@@ -25,17 +26,18 @@ func main() {
 		splitted[i] = "subs"
 	}
 
-	
-	for _, line := range splitted {
-		fmt.Printf("-%q\n", line)
-	}
 
 	file, err := os.Create("./newcontacts.vcf")
 	check(err)
-
 	defer file.Close()
 
-	
 
+	writer := bufio.NewWriter(file)
+	for _, line := range splitted {
+		_, err = writer.WriteString(line + "\n")
+		check(err)
+	}
+	writer.Flush()
 
+	fmt.Println("Success")
 }
