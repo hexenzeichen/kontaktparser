@@ -16,6 +16,7 @@ func check(e error) {
 
 
 func main() {
+
 	data, err := os.ReadFile("./contacts.vcf")
 	check(err)
 
@@ -39,5 +40,5 @@ func main() {
 	}
 	writer.Flush()
 
-	fmt.Println("Success")
+	fmt.Println("Done.")
 }
