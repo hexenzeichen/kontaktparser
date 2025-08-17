@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"strings"
 )
 
 
@@ -14,7 +15,13 @@ func check(e error) {
 
 
 func main() {
-	dat, err := os.ReadFile("./contacts.vcf")
+	data, err := os.ReadFile("./contacts.vcf")
 	check(err)
-	fmt.Print(string(dat))
+
+
+	lines := strings.Split(string(data), "\n")
+
+	for _, line := range lines {
+		fmt.Printf("-%q\n", line)
+	}
 }
