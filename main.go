@@ -24,7 +24,10 @@ func main() {
 	splitted := strings.Split(string(data), "\n")
 
 	for i := 0; i < len(splitted); i++ {
-		splitted[i] = "subs"
+		if strings.HasPrefix(splitted[i], "TEL;") {
+		    fmt.Println(splitted[i])
+		}
+		
 	}
 
 
