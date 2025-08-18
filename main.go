@@ -22,10 +22,21 @@ func main() {
 
 
 	splitted := strings.Split(string(data), "\n")
+	var phone string
+
 
 	for i := 0; i < len(splitted); i++ {
 		if strings.HasPrefix(splitted[i], "TEL;") {
-		    fmt.Println(splitted[i])
+			phoneStringSplitted := strings.Split(string(splitted[i]), ":")
+			phone = phoneStringSplitted[1]
+			if !strings.HasPrefix(phone, "+") && len(phone) == 13  {
+				phoneSplitted := strings.Split(phone, "-")
+				phoneRestored := "+38" + phoneSplitted[0] + phoneSplitted[1] + phoneSplitted[2]
+
+	
+				fmt.Println(phoneRestored)
+			}
+			
 		}
 		
 	}
