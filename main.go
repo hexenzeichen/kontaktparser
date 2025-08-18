@@ -32,9 +32,8 @@ func main() {
 			if !strings.HasPrefix(phone, "+") && len(phone) == 13  {
 				phoneSplitted := strings.Split(phone, "-")
 				phoneRestored := "+38" + phoneSplitted[0] + phoneSplitted[1] + phoneSplitted[2]
-
-	
-				fmt.Println(phoneRestored)
+				phoneStringRestored := phoneStringSplitted[0] + ":" + phoneRestored
+				splitted[i] = phoneStringRestored
 			}
 			
 		}
